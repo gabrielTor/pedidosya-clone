@@ -9,7 +9,7 @@ export default function Categories() {
           <Image
           source={require('../../imgs/restaurants-icon.webp')}
           className='w-14 h-14 m-auto'/>
-          <Text className='font-bold text-center'>Restaurantas</Text>
+          <Text className='font-bold text-center'>Restaurantes</Text>
         </View>
         <View className='m-2 mt-5'>
           <Image

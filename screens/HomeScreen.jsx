@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import Categories from './components/Categories'
 import SearchBar from './components/SearchBar'
+import Card from './components/Card'
 
 export default function HomeScreen() {
 
@@ -75,6 +76,23 @@ export default function HomeScreen() {
             <Text className='mt-2'>Carnes</Text>
           </View>
         </ScrollView>
+      </View>
+      <View className='my-7 px-5'>
+      <Text className='font-bold text-lg my-2'>100 restaurantes</Text>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
       </View>
     </ScrollView>
   )
