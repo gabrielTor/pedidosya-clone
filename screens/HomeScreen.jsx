@@ -1,13 +1,10 @@
-import { ScrollView, View, Image, Text } from 'react-native'
+import { ScrollView, View, Image, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
 import Categories from './components/Categories'
 import SearchBar from './components/SearchBar'
 import Card from './components/Card'
 
-export default function HomeScreen() {
-
-  const navigation = useNavigation()
+export default function HomeScreen({navigation}) {
 
   return (
     <ScrollView>
@@ -16,9 +13,9 @@ export default function HomeScreen() {
       <View className='px-5'>
         <View className='flex-row justify-between my-3'>
           <Text className='font-bold text-xl'>Comidas</Text>
-          <Text className='my-auto'>Ver Todos</Text>
+          <Text className='my-auto text-gray-500'>Ver Todos</Text>
         </View>
-        <ScrollView horizontal className='space-x-4'>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} className='space-x-4'>
           <View>
             <View className='w-20 h-20 bg-white'>
               <Image
