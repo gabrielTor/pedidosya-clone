@@ -9,7 +9,7 @@ export default function SearchBar() {
         <View className='mt-2.5'>
           <FontAwesome name="search" size={24} color="gray"/>
         </View>
-        <TextInput className='px-2'
+        <TextInput className='px-2' style={{width: '100%'}}
           placeholder='Buscar...'/>
       </View>
       <Text className='m-auto font-bold mr-4'>

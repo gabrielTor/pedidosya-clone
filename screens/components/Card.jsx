@@ -1,11 +1,17 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { FontAwesome, EvilIcons } from '@expo/vector-icons'
 import { urlFor } from '../../sanity'
+import { useNavigation } from '@react-navigation/native'
 
 export default function Card({title, image, rating}) {
+
+  const { navigate } = useNavigation()
+
   return (
-    <View className='mt-2 px-3 py-1 shadow rounded-md bg-white flex-row justify-between'>
+    <TouchableOpacity 
+      onPress={()=>navigate('Details')}
+      className='mt-2 px-3 py-1 shadow rounded-md bg-white flex-row justify-between'>
       <Image
           className='h-12 w-12 mt-1.5 rounded-md'
           source={{uri: urlFor(image).url()}}/>
@@ -17,6 +23,6 @@ export default function Card({title, image, rating}) {
           <Text className='my-0.5 text-xs mb-2'>25 - 40min - Envio$159</Text>
       </View>
       <Text className='p-1'><FontAwesome name="star" size={14} color="orange"/> {rating}</Text>
-    </View>
+    </TouchableOpacity>
   )
 }

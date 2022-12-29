@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image } from 'react-native'
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import client, { urlFor } from '../../sanity'
 
@@ -22,14 +22,14 @@ export default function Foods() {
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} className='space-x-4'>
         {foods?.map(f => (
-          <View key={f.name}>
+          <TouchableOpacity key={f.name}>
             <View className='w-20 h-20 bg-white'>
               <Image
                 className='w-16 h-16 place-self-end left-4'
                 source={{uri: urlFor(f.image).url()}}/>
             </View>
             <Text className='mt-2 w-20'>{f.name}</Text>
-          </View>
+          </TouchableOpacity>
         ))
         }
         </ScrollView>
