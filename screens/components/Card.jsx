@@ -4,13 +4,13 @@ import { FontAwesome, EvilIcons } from '@expo/vector-icons'
 import { urlFor } from '../../sanity'
 import { useNavigation } from '@react-navigation/native'
 
-export default function Card({title, image, rating}) {
+export default function Card({title, image, rating, id}) {
 
   const { navigate } = useNavigation()
 
   return (
     <TouchableOpacity 
-      onPress={()=>navigate('Details')}
+      onPress={()=>navigate('Details', {id})}
       className='mt-2 px-3 py-1 shadow rounded-md bg-white flex-row justify-between'>
       <Image
           className='h-12 w-12 mt-1.5 rounded-md'
