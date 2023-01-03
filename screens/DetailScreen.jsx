@@ -71,7 +71,7 @@ export default function DetailScreen({navigation}) {
           image={dish.image}
           price={dish.price}/>
         ))}
-        <View className='h-16'/>
+        <View className='h-24'/>
     </ScrollView>
     </>
   )
