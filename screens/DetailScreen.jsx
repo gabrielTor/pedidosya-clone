@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, Image, TouchableOpacity, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useRoute } from '@react-navigation/native'
 import { AntDesign, FontAwesome, Ionicons  } from '@expo/vector-icons'
@@ -14,7 +14,6 @@ export default function DetailScreen({navigation}) {
   const dispatch = useDispatch()
   const { params } = useRoute()
   const [info, setInfo] = useState()
-  const defaultImg = 'https://png.pngitem.com/pimgs/s/197-1979886_images-transparent-food-symbol-png-png-download.png'
   
   useEffect(()=>{
     client.fetch(`*[_type == "restaurant" && _id == $id]{
@@ -27,9 +26,21 @@ export default function DetailScreen({navigation}) {
   },[])
 
   const handleGoBack = () => {
-    dispatch(removeAll())
-    navigation.goBack()
-    alert('Going back home will reset your cart')
+    Alert.alert(
+      'Volver al incio',
+      'Al volver al incio su compra se reiniciara',
+      [
+        {
+          text: 'Si',
+          onPress: () => {
+            dispatch(removeAll())
+            navigation.goBack()
+          }
+        },
+        {
+          text: 'No'
+        }
+      ])
   }
 
   return (
@@ -38,7 +49,7 @@ export default function DetailScreen({navigation}) {
     <ScrollView>
       <View className='relative'>
         <Image 
-          source={{uri: info?.cover_image ? urlFor(info?.cover_image).url() : defaultImg}}
+          source={{uri: info?.cover_image ? urlFor(info?.cover_image).url() : null}}
           className='w-full h-56 bg-gray-300 p-4'/>
         <TouchableOpacity 
           onPress={handleGoBack}
