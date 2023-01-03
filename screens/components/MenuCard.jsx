@@ -32,7 +32,7 @@ export default function MenuCard({id, description, image, name, price}) {
             </TouchableOpacity>
         </View>
     </TouchableOpacity>
-    {isPressed && <CartBtns id={id}/>}
+    {isPressed && <CartBtns id={id} price={price} name={name} image={image}/>}
     </>
   )
 }

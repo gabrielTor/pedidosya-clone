@@ -4,10 +4,10 @@ import { Entypo } from '@expo/vector-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, removeFromCart } from '../../redux/cartSlice'
 
-export default function CartBtns({id}) {
+export default function CartBtns({id, price, name, image}) {
 
     const dispatch = useDispatch()
-    const items = useSelector(state => state.cart.items.filter(item => item === id))
+    const items = useSelector(state => state.cart.items.filter(item => item.id === id))
 
   return (
     <View className='bg-white px-4 -mt-1 mb-1 pt-2'>
@@ -19,7 +19,7 @@ export default function CartBtns({id}) {
             
             <Text>{items.length}</Text>
             
-            <TouchableOpacity onPress={()=>dispatch(addToCart(id))}>
+            <TouchableOpacity onPress={()=>dispatch(addToCart({id, price, name, image}))}>
                 <Entypo name="circle-with-plus" size={28} color="rgb(250, 0, 80)" />
             </TouchableOpacity>
         </View>
