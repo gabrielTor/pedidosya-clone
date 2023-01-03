@@ -6,6 +6,7 @@ import { Feather } from '@expo/vector-icons'
 import store from './redux/store'
 import { Provider } from 'react-redux'
 import CheckoutScreen from './screens/CheckoutScreen'
+import SuccessScreen from './screens/SuccessScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -26,6 +27,10 @@ export default function App() {
           <Stack.Screen name="Checkout" component={CheckoutScreen}
             options={{
               presentation: 'modal', headerShown: false
+            }} />
+          <Stack.Screen name="Success" component={SuccessScreen}
+            options={{
+              presentation: 'fullScreenModal', headerShown: false
             }} />
         </Stack.Navigator>
       </Provider>

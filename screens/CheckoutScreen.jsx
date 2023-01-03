@@ -22,6 +22,7 @@ export default function CheckoutScreen({navigation}) {
 
     <View className='absolute bottom-0 z-50 bg-white w-full border-t'>
       <TouchableOpacity
+        onPress={()=>navigation.navigate('Success')}
         className='m-5 rounded-full p-4 flex-row justify-center' 
         style={{backgroundColor: 'rgb(250, 0, 80)'}}>
         <Text className='color-white font-bold'>Ir a pagar</Text>

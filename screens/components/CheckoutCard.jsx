@@ -23,7 +23,10 @@ export default function CheckoutCard() {
     }
     
     useEffect(()=>{
-        if(!items.length) goBack()
+        let mounted = true
+        if(!items.length && mounted) goBack()
+
+        return () => mounted = false
     },[items])
 
   return (
