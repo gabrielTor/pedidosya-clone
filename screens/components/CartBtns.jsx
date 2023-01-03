@@ -14,13 +14,13 @@ export default function CartBtns({id}) {
         <View className='flex-row items-center space-x-2 pb-3'>
             <TouchableOpacity onPress={()=>dispatch(removeFromCart(id))}>
                 <Entypo name="circle-with-minus" size={28} 
-                    color={items.length ? "red" : "gary"} />
+                    color={items.length ? "rgb(250, 0, 80)" : "gary"} />
             </TouchableOpacity>
             
             <Text>{items.length}</Text>
             
             <TouchableOpacity onPress={()=>dispatch(addToCart(id))}>
-                <Entypo name="circle-with-plus" size={28} color="red" />
+                <Entypo name="circle-with-plus" size={28} color="rgb(250, 0, 80)" />
             </TouchableOpacity>
         </View>
     </View>

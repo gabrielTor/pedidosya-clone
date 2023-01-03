@@ -5,10 +5,13 @@ import { AntDesign, FontAwesome, Ionicons  } from '@expo/vector-icons'
 import client, { urlFor } from '../sanity'
 import MenuCard from './components/MenuCard'
 import CartIcon from './components/CartIcon'
+import { useDispatch } from 'react-redux'
+import { removeAll } from '../redux/cartSlice'
 
 
 export default function DetailScreen({navigation}) {
 
+  const dispatch = useDispatch()
   const { params } = useRoute()
   const [info, setInfo] = useState()
   const defaultImg = 'https://png.pngitem.com/pimgs/s/197-1979886_images-transparent-food-symbol-png-png-download.png'
@@ -23,6 +26,12 @@ export default function DetailScreen({navigation}) {
     .catch((err)=>console.log(err))
   },[])
 
+  const handleGoBack = () => {
+    dispatch(removeAll())
+    navigation.goBack()
+    alert('Going back home will reset your cart')
+  }
+
   return (
     <>
     <CartIcon/>
@@ -32,7 +41,7 @@ export default function DetailScreen({navigation}) {
           source={{uri: info?.cover_image ? urlFor(info?.cover_image).url() : defaultImg}}
           className='w-full h-56 bg-gray-300 p-4'/>
         <TouchableOpacity 
-          onPress={navigation.goBack}
+          onPress={handleGoBack}
           className='absolute top-14 left-5 p-2 bg-gray-300 rounded-full'>
           <AntDesign name="arrowleft" size={20} color="black" />
         </TouchableOpacity>
