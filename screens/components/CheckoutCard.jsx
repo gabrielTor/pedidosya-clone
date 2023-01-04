@@ -4,11 +4,9 @@ import { urlFor } from '../../sanity'
 import { useSelector } from 'react-redux'
 import CartBtns from './CartBtns'
 import Total from './Total'
-import { useNavigation } from '@react-navigation/native'
 
 export default function CheckoutCard() {
 
-    const { goBack } = useNavigation()
     const items = useSelector(state => state.cart.items)
     let cart = []
     for (let i = 0; i < items.length; i++) {
@@ -21,13 +19,6 @@ export default function CheckoutCard() {
         subtotal = subtotal.reduce((total, amount) => total + amount, 0)
         return subtotal
     }
-    
-    useEffect(()=>{
-        let mounted = true
-        if(!items.length && mounted) goBack()
-
-        return () => mounted = false
-    },[items])
 
   return (
     <View className='px-5'>
