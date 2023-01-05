@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import * as Animatable from 'react-native-animatable'
-import { useDispatch } from 'react-redux';
-import { removeAll } from '../redux/cartSlice';
+import { useDispatch } from 'react-redux'
+import { removeAll } from '../redux/cartSlice'
 
 export default function SuccessScreen({navigation}) {
 

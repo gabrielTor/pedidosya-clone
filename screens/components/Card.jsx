@@ -3,14 +3,21 @@ import React from 'react'
 import { FontAwesome, EvilIcons } from '@expo/vector-icons'
 import { urlFor } from '../../sanity'
 import { useNavigation } from '@react-navigation/native'
+import { useDispatch } from 'react-redux'
+import { currentRestImg } from '../../redux/restaurantsSlice'
 
 export default function Card({title, image, rating, id}) {
 
+  const dispatch = useDispatch()
   const { navigate } = useNavigation()
+  const handlePress = () => {
+    dispatch(currentRestImg({image, title}))
+    navigate('Details', {id})
+  }
 
   return (
     <TouchableOpacity 
-      onPress={()=>navigate('Details', {id})}
+      onPress={handlePress}
       className='mt-2 px-3 py-1 shadow rounded-md bg-white flex-row justify-between'>
       <Image
           className='h-12 w-12 mt-1.5 rounded-md'

@@ -1,12 +1,13 @@
 import { View, Text, ScrollView, Image, TouchableOpacity, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useRoute } from '@react-navigation/native'
-import { AntDesign, FontAwesome, Ionicons  } from '@expo/vector-icons'
+import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import client, { urlFor } from '../sanity'
 import MenuCard from './components/MenuCard'
 import CartIcon from './components/CartIcon'
 import { useDispatch } from 'react-redux'
 import { removeAll } from '../redux/cartSlice'
+import { currentRestImg } from '../redux/restaurantsSlice'
 
 
 export default function DetailScreen({navigation}) {
@@ -34,6 +35,7 @@ export default function DetailScreen({navigation}) {
           text: 'Si',
           onPress: () => {
             dispatch(removeAll())
+            dispatch(currentRestImg(null))
             navigation.goBack()
           }
         },
@@ -69,7 +71,17 @@ export default function DetailScreen({navigation}) {
       <View className='bg-white'>
         <View className='px-4 pt-4 space-y-3 my-3'>
           <Text className='text-3xl font-bold'>{info?.title}</Text>
-          <Text><FontAwesome name="star" size={14} color="orange"/> {info?.rating}</Text>
+          <View className='flex-row justify-between'>
+            <View className='flex-row space-x-1'>
+              <Text>
+                <FontAwesome name="star" size={14} color="orange"/> {info?.rating} - 
+              </Text>
+              <Text className='text-green-700'>
+                <Ionicons name="ios-trophy-sharp" size={14} color="green" /> Comida rica
+              </Text>
+            </View>
+            <Text className='underline'>Leer opiniones</Text>
+          </View>
         </View>
       </View>
       <Text className='text-lg font-bold p-4'>Menu</Text>
