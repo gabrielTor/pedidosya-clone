@@ -8,7 +8,7 @@
 ![](https://res.cloudinary.com/lookhome/image/upload/v1672886586/gifs/zgu3zw5zcmef0wdborl6.gif)
 
 ## General info
-This app is a clone of very known delivery company in Arggentina and is part of Deliveroo
+This app is a clone of very known delivery company in Argentina and is part of Deliveroo.
 
 ## Technologies
 Project is created with:
